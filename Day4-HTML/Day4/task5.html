@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Shapes on Canvas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        canvas {
+            border: 2px solid black;
+        }
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <div class="controls">
+        <button onclick="drawRectangle()">Draw Rectangle</button>
+        <button onclick="drawCircle()">Draw Circle</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Function to draw a rectangle
+        function drawRectangle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas before drawing
+            ctx.fillStyle = 'blue'; // Set the rectangle color
+            ctx.fillRect(50, 50, 200, 100); // Draw rectangle (x, y, width, height)
+        }
+
+        // Function to draw a circle
+        function drawCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas before drawing
+            ctx.beginPath(); // Start a new path for the circle
+            ctx.arc(300, 200, 50, 0, Math.PI * 2); // Draw circle (x, y, radius, startAngle, endAngle)
+            ctx.fillStyle = 'green'; // Set the circle color
+            ctx.fill(); // Fill the circle
+        }
+    </script>
+</body>
+</html>
